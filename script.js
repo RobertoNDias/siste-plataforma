@@ -81,3 +81,57 @@ if (track) {
   track.addEventListener('mouseenter', () => clearInterval(auto));
   track.addEventListener('mouseleave', () => (auto = setInterval(() => slide(1), 5000)));
 }
+
+// Popup contact logic (Elementor-like)
+(function () {
+  const modal = document.getElementById('popup-contact');
+  if (!modal) return;
+
+  const openers = Array.from(document.querySelectorAll('.cta-popup, .btn-cta'));
+  const closeBtn = modal.querySelector('.modal__close');
+
+  function openPopup() {
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+  }
+
+  function closePopup() {
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+  }
+
+  // Expose globally for inline handlers if needed
+  window.openPopup = openPopup;
+  window.closePopup = closePopup;
+
+  openers.forEach((el) => {
+    el.addEventListener('click', (e) => {
+      e.preventDefault();
+      openPopup();
+    });
+  });
+
+  closeBtn && closeBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    closePopup();
+  });
+
+  // Close on overlay click
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) closePopup();
+  });
+
+  // Escape key closes
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closePopup();
+  });
+
+  // Simple form handler
+  const form = document.getElementById('contactForm');
+  form && form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    closePopup();
+    alert('Mensagem enviada! Em breve entraremos em contato.');
+  });
+})();

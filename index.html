@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-br">
+<html lang="pt-br" class="theme-light">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -9,120 +9,114 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <!-- Analytics: load only in production with valid ID -->
+    <script>
+      (function () {
+        var GA_MEASUREMENT_ID = 'G-XXXXXXX'; // troque pelo seu ID real em produção
+        var isLocal = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+        var hasValidId = /^G-[A-Z0-9]+$/.test(GA_MEASUREMENT_ID) && GA_MEASUREMENT_ID !== 'G-XXXXXXX';
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function(){ dataLayer.push(arguments); };
+        if (!isLocal && hasValidId) {
+          var s = document.createElement('script');
+          s.async = true;
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_MEASUREMENT_ID;
+          s.onload = function() {
+            gtag('js', new Date());
+            gtag('config', GA_MEASUREMENT_ID);
+          };
+          document.head.appendChild(s);
+        } else {
+          // Dev ou ID placeholder: não inicializa GA para evitar erros no console
+        }
+      })();
+    </script>
   </head>
   <body>
-    <header class="header">
+    <header class="header header--clone">
       <div class="container header__inner">
-        <a class="brand" href="#">
+        <div class="header__left">
           <img src="assets/logo.svg" alt="Logo" class="brand__logo" />
-          <span class="brand__name">Automatize Center</span>
-        </a>
-        <nav class="nav" id="nav">
-          <a href="#features">Funcionalidades</a>
-          <a href="#testimonials">Depoimentos</a>
-          <a href="#pricing">Planos</a>
-          <a href="#contact">Contato</a>
-        </nav>
-        <div class="header__cta">
-          <a class="btn btn--primary" href="#contact">Experimentar agora</a>
-          <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">☀️</button>
-          <button class="hamburger" id="hamburger" aria-label="Abrir menu">☰</button>
+          <h1 class="header__title">Automatize Center</h1>
         </div>
+        <a href="#popup-contact" class="cta-popup">Fale Conosco</a>
       </div>
     </header>
 
-    <section class="hero">
-      <div class="container hero__inner">
-        <div class="hero__copy">
-          <h1>Atendimento que escala: organize, automatize e encante</h1>
-          <p>
-            Construa jornadas de conversa com blocos visuais, programe lembretes e gerencie cada interação com rapidez e clareza.
-          </p>
-          <div class="hero__actions">
-            <a class="btn btn--primary" href="#pricing">Testar gratuitamente</a>
-            <a class="btn btn--ghost" href="#features">Explorar recursos</a>
-          </div>
-          <div class="hero__socialproof">
-            <div class="stat">
-              <strong>Feito para times ágeis</strong>
-              <span>produtividade sem perder o toque humano</span>
-            </div>
-            <div class="stat">
-              <strong>Experiência centrada no cliente</strong>
-              <span>processos claros e conversas mais efetivas</span>
-            </div>
-          </div>
-        </div>
-        <div class="hero__media" aria-hidden="true">
-          <div class="mockup">
-            <div class="mockup__header">
-              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-            </div>
-            <div class="mockup__content">
-              <div class="bubble bubble--left">Olá! Como posso ajudar você hoje?</div>
-              <div class="bubble bubble--right">Quero agendar uma mensagem para amanhã.</div>
-              <div class="bubble bubble--left">Perfeito! Vou configurar um lembrete automático.</div>
-            </div>
-          </div>
-        </div>
+    <section class="hero hero-simple">
+      <div class="container">
+        <h1 class="hero__title">Um funil de vendas dentro do WhatsApp</h1>
+        <h2 class="hero__subtitle">Clientes Satisfeitos, Resultados Comprovados</h2>
       </div>
     </section>
 
-    <section id="features" class="features">
+    <section id="features" class="features features-clone">
       <div class="container">
-        <h2>Recursos pensados para o ritmo do seu time</h2>
-        <p class="section__lead">Organize conversas, otimize rotinas e ganhe previsibilidade no atendimento.</p>
-        <div class="features__grid">
-          <article class="feature">
-            <div class="feature__icon">🔗</div>
-            <h3>Construtor visual de fluxos</h3>
-            <p>Crie jornadas de conversa com blocos conectáveis — zero código.</p>
-          </article>
-          <article class="feature">
-            <div class="feature__icon">⏰</div>
-            <h3>Lembretes e envios programados</h3>
-            <p>Dispare mensagens no momento certo e mantenha o fluxo em dia.</p>
-          </article>
-          <article class="feature">
-            <div class="feature__icon">📜</div>
-            <h3>Roteiros reutilizáveis</h3>
-            <p>Padronize abordagens com sequências prontas e reutilize com um clique.</p>
-          </article>
-          <article class="feature">
-            <div class="feature__icon">📱</div>
-            <h3>Acompanhamento pelo celular</h3>
-            <p>Veja seus atendimentos em qualquer lugar, sem perder contexto.</p>
-          </article>
-          <article class="feature">
-            <div class="feature__icon">📊</div>
-            <h3>Relatórios simples</h3>
-            <p>Acompanhe volume, tempos e melhorias com clareza.</p>
-          </article>
-          <article class="feature">
-            <div class="feature__icon">⚙️</div>
-            <h3>Automação por regras</h3>
-            <p>Crie gatilhos e ações para ganhar escala sem perder controle.</p>
-          </article>
+        <p class="intro">As funcionalidades mais desejadas do mercado estão disponíveis na nossa aplicação para você turbinar seu atendimento.</p>
+        <div class="cards-grid">
+          <div class="card card--feature">
+            <h3>Construtor de chatbots estilo arrasta e solta</h3>
+            <p>Crie fluxos com blocos visuais, conecte etapas e publique em minutos com nosso construtor intuitivo.</p>
+          </div>
+          <div class="card card--feature">
+            <h3>Agendamento de Mensagens e Lembretes</h3>
+            <p>Programe disparos com data e hora, defina lembretes recorrentes e mantenha seus contatos engajados.</p>
+          </div>
+          <div class="card card--feature">
+            <h3>Scripts com Sequências de Mensagens Prontas</h3>
+            <p>Acelere abordagens com roteiros prontos e personalizáveis para atendimento, vendas e suporte.</p>
+          </div>
         </div>
+        <h3 class="more-title">E muito mais...</h3>
+        <ul class="more-list">
+          <li>
+            <h4>Acesso Mobile</h4>
+            <p>Acompanhe conversas e métricas direto do celular, onde estiver.</p>
+          </li>
+          <li>
+            <h4>Distribuição</h4>
+            <p>Direcione conversas automaticamente para os atendentes certos.</p>
+          </li>
+          <li>
+            <h4>Automações</h4>
+            <p>Dispare ações com gatilhos e integre processos com facilidade.</p>
+          </li>
+          <li>
+            <h4>Assinatura</h4>
+            <p>Registre termos e autorizações com segurança e validade jurídica.</p>
+          </li>
+          <li>
+            <h4>Permissões</h4>
+            <p>Controle de acesso por perfis e auditoria de ações.</p>
+          </li>
+          <li>
+            <h4>API e Webhooks</h4>
+            <p>Integração com sistemas externos para eventos e dados em tempo real.</p>
+          </li>
+        </ul>
       </div>
     </section>
 
     <section id="testimonials" class="testimonials">
       <div class="container">
-        <h2>Times mais ágeis, clientes mais satisfeitos</h2>
-        <p class="section__lead">Depoimentos de quem já está acelerando atendimento com inteligência.</p>
-        <div class="carousel">
+        <h2>Quem já transformou o atendimento</h2>
+        <div class="carousel" aria-live="polite">
           <div class="carousel__track" id="carouselTrack">
             <div class="card">
-              <p>Fluxos visuais facilitaram muito o trabalho do time. A curva de aprendizado foi mínima.</p>
-              <div class="author">Mariana Costa</div>
+              <p>A plataforma trouxe clareza ao nosso funil e reduziu retrabalho.</p>
+              <div class="author">Júlia Ramos</div>
             </div>
             <div class="card">
-              <p>Distribuição automática deu previsibilidade e melhorou nosso tempo de resposta.</p>
-              <div class="author">João Ferreira</div>
+              <p>Integrações e automações resolveram o que era previsível no dia a dia.</p>
+              <div class="author">Diego Pereira</div>
+            </div>
+            <div class="card">
+              <p>Escalamos sem perder a qualidade das conversas com os clientes.</p>
+              <div class="author">Camila Rocha</div>
             </div>
             <div class="card">
               <p>Agendamentos acabaram com esquecimentos e o time ficou mais alinhado.</p>
@@ -137,42 +131,61 @@
       </div>
     </section>
 
-    <section id="pricing" class="pricing">
+    <section id="pricing" class="plans">
       <div class="container">
-        <h2>Planos pensados para cada etapa</h2>
-        <p class="section__lead">Escolha o ritmo certo e evolua sem atritos.</p>
-        <div class="pricing__grid">
-          <div class="plan">
-            <h3>Starter</h3>
-            <p class="price">R$ 49/mês</p>
-            <ul>
+        <header class="plans__intro">
+          <h2>Nossos planos</h2>
+          <p>Escolha o plano ideal e alavanque seu atendimento</p>
+        </header>
+        <div class="plans-grid">
+          <div class="plan-card">
+            <h4 class="plan-title">Starter</h4>
+            <p class="plan-users">1 usuário incluso</p>
+            <div class="price"><span class="amount">R$49</span><span class="per">/mês</span></div>
+            <ul class="plan-features">
               <li>Fluxos básicos</li>
-              <li>Agendamentos e lembretes</li>
-              <li>Suporte por e-mail</li>
+              <li>Agendamentos</li>
             </ul>
-            <a class="btn btn--primary" href="#contact">Assinar</a>
+            <a class="btn-plan" href="#signup">Assinar</a>
           </div>
-          <div class="plan plan--featured">
-            <h3>Pro</h3>
-            <p class="price">R$ 129/mês</p>
-            <ul>
+          <div class="plan-card plan-card--featured">
+            <span class="badge">Mais vendido</span>
+            <h4 class="plan-title">Pro</h4>
+            <p class="plan-users">4 usuários inclusos</p>
+            <div class="price"><span class="amount">R$129</span><span class="per">/mês</span></div>
+            <ul class="plan-features">
               <li>Builder avançado</li>
               <li>Distribuição automática</li>
-              <li>Automação por regras</li>
             </ul>
-            <a class="btn btn--primary" href="#contact">Assinar</a>
+            <a class="btn-plan" href="#signup">Assinar</a>
           </div>
-          <div class="plan">
-            <h3>Enterprise</h3>
-            <p class="price">Sob consulta</p>
-            <ul>
+          <div class="plan-card">
+            <h4 class="plan-title">Enterprise</h4>
+            <p class="plan-users">2 usuários inclusos</p>
+            <div class="price"><span class="amount">Sob consulta</span></div>
+            <ul class="plan-features">
               <li>Onboarding assistido</li>
               <li>Integrações dedicadas</li>
-              <li>Suporte priorizado</li>
+              <li>Usuários extra (R$59,90 cada)</li>
             </ul>
-            <a class="btn btn--primary" href="#contact">Falar com vendas</a>
+            <a class="btn-plan" href="#signup">Assinar</a>
           </div>
         </div>
+        <div class="plans-addon">
+          <div class="plan-card plan-card--addon">
+            <h3>Módulo adicional (R$97,49)</h3>
+          </div>
+        </div>
+        <hr class="plans-sep" />
+        <h2 class="plans-promo">OFERTA Black Friday 🎉</h2>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container">
+        <h2>Está com dúvidas? Potencialize seu atendimento hoje mesmo!</h2>
+        <p>Nosso time está pronto para ajudar a esclarecer suas dúvidas e impulsionar seu negócio. Entre em contato agora e descubra como podemos aumentar sua produtividade.</p>
+        <button class="btn-cta btn btn--primary" data-open="contact">Entre em Contato</button>
       </div>
     </section>
 
@@ -191,11 +204,42 @@
       </div>
     </section>
 
-    <footer class="footer">
+    <footer class="footer footer--minimal">
       <div class="container footer__inner">
-        <div class="footer__small">© 2025 Automatize Center. Todos os direitos reservados.</div>
+        <ul class="footer__links">
+          <li><a href="#features">Funcionalidades</a></li>
+          <li><a href="#pricing">Planos</a></li>
+          <li><a href="#popup-contact" class="cta-popup">Contato</a></li>
+        </ul>
+        <p class="footer__copy">© 2025 Automatize Center. Todos os direitos reservados.</p>
       </div>
     </footer>
+
+    <div id="popup-contact" class="modal" aria-hidden="true" role="dialog" aria-modal="true">
+      <div class="modal__content" role="document">
+        <div class="modal__header">
+          <h3>Fale Conosco</h3>
+          <button class="modal__close" aria-label="Fechar">&times;</button>
+        </div>
+        <form id="contactForm" class="modal__form">
+          <div class="form-row">
+            <label for="contactName">Nome</label>
+            <input id="contactName" type="text" required />
+          </div>
+          <div class="form-row">
+            <label for="contactEmail">Email</label>
+            <input id="contactEmail" type="email" required />
+          </div>
+          <div class="form-row">
+            <label for="contactMessage">Mensagem</label>
+            <textarea id="contactMessage" rows="4" required></textarea>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn--primary">Enviar</button>
+          </div>
+        </form>
+      </div>
+    </div>
 
     <script src="script.js"></script>
   </body>
