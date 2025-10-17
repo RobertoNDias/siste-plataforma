@@ -1,4 +1,4 @@
-# SistemaCenter Landing + Vite Project
+# Automatize Center Landing + Vite Project
 
 Projeto contendo duas partes:
 
