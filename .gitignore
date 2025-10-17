@@ -1,0 +1,21 @@
+# Raiz
+node_modules/
+dist/
+*.log
+*.tmp
+.tmp/
+.cache/
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Editors/IDE
+.vscode/
+.idea/
+.DS_Store
+
+# Vite subprojeto
+vite-project/node_modules/
+vite-project/dist/
+vite-project/.vite/
