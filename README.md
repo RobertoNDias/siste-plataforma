@@ -39,6 +39,10 @@ Projeto contendo duas partes:
 - GitHub Pages: publique o conteúdo de `vite-project/dist/` ou configure diretamente o subprojeto.
 - Evite versionar `node_modules` e `dist` (veja `.gitignore`).
 
+## Plano de Desenvolvimento (2 semanas)
+- Consulte `docs/developer-plan.md` para cronograma, critérios de aceitação e branches.
+- Branches sugeridos: `feature/ux-tour`, `feature/responsive-perf`, `feature/dashboard-dnd`, `feature/ai-generate`, `feature/analytics-charts`, `feature/multichannel-templates`, `feature/security-2fa-audit`, `feature/affiliates-cases`, `feature/ab-test-typeform`, `feature/plans-freemium-addon`.
+
 ## Tema
 
 - Suporte a tema claro/escuro com toggle no header.
