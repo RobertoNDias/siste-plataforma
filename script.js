@@ -2,9 +2,16 @@
 const hamburger = document.getElementById('hamburger');
 const nav = document.getElementById('nav');
 if (hamburger && nav) {
+  const setState = () => {
+    const opened = nav.classList.contains('open');
+    hamburger.setAttribute('aria-expanded', opened ? 'true' : 'false');
+    hamburger.setAttribute('aria-label', opened ? 'Fechar menu' : 'Abrir menu');
+  };
   hamburger.addEventListener('click', () => {
     nav.classList.toggle('open');
+    setState();
   });
+  setState();
 }
 
 // Theme toggle (light/dark) with persistence
